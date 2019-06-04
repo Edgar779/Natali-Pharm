@@ -1,0 +1,25 @@
+{
+  "name": "task-node-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch-ts": "tsc -w",
+    "watch-node": "nodemon dist/server.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \"yarn run watch-ts\" \"yarn run watch-node\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "@types/express": "^4.16.1",
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "cookie-parser": "^1.4.4",
+    "yarn": "^1.16.0"
+  }
+}
