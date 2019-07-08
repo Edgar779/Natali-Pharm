@@ -1,0 +1,145 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "The Title of your project",
+        "description": "A description of your project",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "schemes": [
+        "https"
+    ],
+    "tags": [
+        {
+            "name": "Auth",
+            "description": "Operations with auth"
+        },
+        {
+            "name": "Category",
+            "description": "Operations with category"
+        },
+        {
+            "name": "User",
+            "description": "Operations with user"
+        },
+        {
+            "name": "Partner",
+            "description": "Operations with partner"
+        },
+        {
+            "name": "Message",
+            "description": "Operations with messages"
+        },
+        {
+            "name": "Card",
+            "description": "Operations with cards"
+        },
+        {
+            "name": "Payment",
+            "description": "Operations with payments"
+        },
+        {
+            "name": "Transaction",
+            "description": "Operations with transactions"
+        },
+        {
+            "name": "Tariff",
+            "description": "Operations with tariffs"
+        }
+    ],
+    
+    "paths": {
+        "/api/auth/signin": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                
+                "summary": "Sign-in user",
+                "description": " Sign-in user phoneNumber",
+                "parameters": [
+                    
+                    {
+                        "in":"body",
+                        "name": "Signin",
+                        "content":"application/x-www-form-urlencoded",
+                        "description": "Signin request body",
+                        "required": "true",
+                        "schema": {
+                            "in":"body",
+                            "type": "object",
+                            "properties": {
+                                "phoneNumber": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response object"
+                    },
+                    "400": {
+                        "description": "Bad request, check keys and values"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+            "/api/auth/login": {
+                "post": {
+                    "tags": [
+                        "Auth"
+                    ],
+                    "summary": "Login user",
+                    "description": "Login user with phoneNumber, verificationCode, deviceId, osType, deviceToken",
+                    "consumes": "application/x-www-form-urlencoded",
+                    "produces": "application/x-www-form-urlencoded",
+                    "parameters": [
+                        {
+                            "in": "body",
+                            "name": "Login",
+                            "description": "Login request body",
+                            "required": "true",
+                            "content": "application/x-www-form-urlencoded",
+                            "schema": {
+                                "type": "object",
+                                
+                                "properties": {
+                                    "phoneNumber": {
+                                        "type": "string"
+                                    },
+                                    "osType": {
+                                        "type": "number"
+                                    },
+                                    "deviceId": {
+                                        "type": "string"
+                                    },
+                                    "verificationCode": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+                    "responses": {
+                        "200": {
+                            "description": "Successful response object"
+                        },
+                        "400": {
+                            "description": "Bad request, check keys and values"
+                        },
+                        "500": {
+                            "description": "Internal server error"
+                        }
+                    }
+                }
+            }
+        }
+    }
